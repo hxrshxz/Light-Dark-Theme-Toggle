@@ -1,0 +1,104 @@
+body {
+  --accent-color: orangered;
+  --bg-color: white;
+  --text-color: black;
+  --button-text-color: var(--bg-color);
+  --transition-delay: 1s;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: var(--transition-delay);
+  height: 100vh;
+  margin: 0;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.heading{
+    margin: 0;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+body.dark {
+  --accent-color: #d0d066;
+  --bg-color: #333;
+  --text-color: white;
+  --button-text-color: var(--text-color);
+  --transition-delay: 0.8s;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.theme-toggle-button {
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+  fill: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  transition: background-color 0.3s;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  transition: var(--transition-delay);
+  transform: scale(1);
+}
+
+
+.theme-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.dark .theme-toggle-button {
+    fill: black;
+}
+
+.sun-moon-container {
+    --rotation:0;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+
+    height: 200vmin;
+    transform: rotate(calc(var(--rotation)*1deg));
+    transition: transform var(--transition-delay);
+}
+
+
+.sun, .moon {
+    position: absolute;
+    transition: opacity ,fill, var(--transition-delay);
+    fill: var(--accent-color);
+}
+.sun{
+    top: 5%;
+}
+.moon{
+    bottom: 5%;
+    opacity: 0;
+   transform: rotate(180deg);
+}
+
+.dark .sun {
+    opacity: 0;
+}
+.dark .moon {
+    opacity: 1;
+}
